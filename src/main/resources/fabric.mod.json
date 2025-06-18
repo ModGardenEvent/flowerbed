@@ -1,41 +1,37 @@
 {
-	"schemaVersion": 1,
-	"id": "flowerbed",
-	"version": "${version}",
-	"name": "Flowerbed",
-	"description": "A utility mod for Mod Garden events. ",
-	"authors": [
-		"Mod Garden"
-	],
-	"contributors": [
-		"MerchantCalico"
-	],
-	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
-	},
-	"license": "CC0-1.0",
-	"icon": "assets/flowerbed/icon.png",
-	"environment": "*",
-	"entrypoints": {
-		"main": [
-			"net.modgarden.flowerbed.Flowerbed"
-		],
-		"client": [
-			"net.modgarden.flowerbed.client.FlowerbedClient"
-		]
-	},
-	"mixins": [
-		"flowerbed.mixins.json",
-		{
-			"config": "flowerbed.client.mixins.json",
-			"environment": "client"
-		}
-	],
-	"depends": {
-		"fabricloader": ">=0.16.10",
-		"minecraft": "~1.21.5",
-		"java": ">=21",
-		"fabric-api": "*"
-	}
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${mod_version}+${minecraft_version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [
+    "${mod_author}"
+  ],
+  "contributors": [
+    "${fabric_mod_contributors}"
+  ],
+  "license": "${mod_license}",
+  "icon": "assets/${mod_id}/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.merchantcalico.craftcornercrockpot.CraftCornerCrockpot"
+    ],
+    "client": [
+      "net.merchantcalico.craftcornercrockpot.client.CraftCornerCrockpotClient"
+    ]
+  },
+  "mixins": [
+    "${mod_id}.mixins.json",
+    {
+      "config": "flowerbed.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": "${fabric_loader_range}",
+    "fabric-api": "*",
+    "minecraft": "${fabric_minecraft_version_range}",
+    "java": ">=${java_version}"
+  }
 }
