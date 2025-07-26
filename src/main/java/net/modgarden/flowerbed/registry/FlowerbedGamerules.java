@@ -15,7 +15,7 @@ public class FlowerbedGamerules {
 					ServerPlayNetworking.send(serverPlayer, new SendPerPlayerPvpValueClientboundPacket(booleanValue.get()));
 				}
 			}));
-	public static final GameRules.Key<GameRules.BooleanValue> ALLOW_ENTERING_PORTALS =
+	public static final GameRules.Key<GameRules.BooleanValue> DISABLE_ENTERING_PORTALS =
 			GameRuleRegistry.register("flowerbed:disable_entering_portals", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(true));
 
 	public static void init() {
