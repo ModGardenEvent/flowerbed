@@ -1,0 +1,14 @@
+{
+	"commands.flowerbed.pvp.get.success.gamerule_enabled": "Your PvP is currently toggled %s",
+	"commands.flowerbed.pvp.get.success.gamerule_disabled": "Your PvP will be toggled %s if per player PvP becomes enabled",
+
+	"commands.flowerbed.pvp.toggle.success.enable.gamerule_enabled": "Your PvP has been enabled",
+	"commands.flowerbed.pvp.toggle.success.enable.info": "You may only attack players with %s suffixed to their nameplate",
+	"commands.flowerbed.pvp.toggle.success.disable.gamerule_enabled": "Your PvP has been disabled",
+
+	"commands.flowerbed.pvp.toggle.success.enable.gamerule_disabled": "PvP between you and other PvP enabled players will be enabled if per player PvP becomes enabled",
+	"commands.flowerbed.pvp.toggle.success.disable.gamerule_disabled": "All PvP towards you will be disabled if per player PvP becomes enabled",
+
+	"commands.flowerbed.pvp.toggle.failed.source": "You may only toggle PvP for yourself",
+	"commands.flowerbed.pvp.toggle.failed.non_player": "You may not toggle PvP on a non player entity"
+}
