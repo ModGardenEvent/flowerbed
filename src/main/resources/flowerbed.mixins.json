@@ -5,7 +5,7 @@
 	"mixins": [
 		"Accessor_CommandSourceStack",
 		"Accessor_ServerPlayerCommandSource",
-		"Invoker_GameRulesBooleanValue",
+		"Mixin_PortalProcessor",
 		"Mixin_ServerPlayer"
 	],
 	"injectors": {
