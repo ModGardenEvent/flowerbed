@@ -16,8 +16,7 @@ public class FlowerbedGamerules {
 				}
 			}));
 	public static final GameRules.Key<GameRules.BooleanValue> ALLOW_ENTERING_PORTALS =
-			GameRuleRegistry.register("flowerbed:allow_entering_portals", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(false,
-					(server, booleanValue) -> {}));
+			GameRuleRegistry.register("flowerbed:disable_entering_portals", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(true));
 
 	public static void init() {
 
