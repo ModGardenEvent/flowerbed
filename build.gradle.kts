@@ -21,6 +21,9 @@ loom {
 }
 
 repositories {
+	maven("https://maven.parchmentmc.org") {
+		name = "ParchmentMC"
+	}
 	maven("https://maven.terraformersmc.com/") {
 		name = "TerraformersMC"
 	}
