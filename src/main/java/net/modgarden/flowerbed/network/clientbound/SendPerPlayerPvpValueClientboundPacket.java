@@ -6,6 +6,7 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 import net.modgarden.flowerbed.Flowerbed;
+import org.jetbrains.annotations.NotNull;
 
 public record SendPerPlayerPvpValueClientboundPacket(boolean value) implements CustomPacketPayload {
 	public static final ResourceLocation ID = Flowerbed.asResource("send_per_player_pvp_value");
@@ -14,7 +15,7 @@ public record SendPerPlayerPvpValueClientboundPacket(boolean value) implements C
 			.map(SendPerPlayerPvpValueClientboundPacket::new, SendPerPlayerPvpValueClientboundPacket::value).cast();
 
 	@Override
-	public Type<? extends CustomPacketPayload> type() {
+	public @NotNull Type<? extends CustomPacketPayload> type() {
 		return TYPE;
 	}
 }

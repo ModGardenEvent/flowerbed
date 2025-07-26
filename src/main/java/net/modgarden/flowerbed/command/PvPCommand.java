@@ -15,7 +15,7 @@ import net.minecraft.util.Unit;
 import net.modgarden.flowerbed.mixin.Accessor_CommandSourceStack;
 import net.modgarden.flowerbed.mixin.Accessor_ServerPlayerCommandSource;
 import net.modgarden.flowerbed.registry.FlowerbedAttachments;
-import net.modgarden.flowerbed.registry.FlowerbedGamerules;
+import net.modgarden.flowerbed.registry.FlowerbedGameRules;
 
 import java.util.Objects;
 
@@ -45,7 +45,7 @@ public class PvPCommand {
 			throw NO_PLAYER.create();
 		}
 
-		boolean gameruleValue = Objects.requireNonNull(player.getServer()).getGameRules().getBoolean(FlowerbedGamerules.PER_PLAYER_PVP);
+		boolean gameruleValue = Objects.requireNonNull(player.getServer()).getGameRules().getBoolean(FlowerbedGameRules.PER_PLAYER_PVP);
 		boolean pvpValue = player.getAttached(FlowerbedAttachments.ACCEPT_PVP) != null;
 		context.getSource().sendSuccess(() -> Component.translatable(gameruleValue
 						? "commands.flowerbed.pvp.get.success.gamerule_enabled" : "commands.flowerbed.pvp.get.success.gamerule_disabled",
@@ -66,7 +66,7 @@ public class PvPCommand {
 			return 0;
 		}
 
-		boolean gameruleValue = Objects.requireNonNull(player.getServer()).getGameRules().getBoolean(FlowerbedGamerules.PER_PLAYER_PVP);
+		boolean gameruleValue = Objects.requireNonNull(player.getServer()).getGameRules().getBoolean(FlowerbedGameRules.PER_PLAYER_PVP);
 		boolean pvpValue = player.getAttached(FlowerbedAttachments.ACCEPT_PVP) != null;
 		if (pvpValue) {
 			player.removeAttached(FlowerbedAttachments.ACCEPT_PVP);

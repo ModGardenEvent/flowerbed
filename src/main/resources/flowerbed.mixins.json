@@ -5,6 +5,8 @@
 	"mixins": [
 		"Accessor_CommandSourceStack",
 		"Accessor_ServerPlayerCommandSource",
+		"Mixin_FoodData",
+		"Mixin_Player",
 		"Mixin_PortalProcessor",
 		"Mixin_ServerPlayer"
 	],

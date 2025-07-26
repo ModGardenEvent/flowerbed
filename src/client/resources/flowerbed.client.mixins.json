@@ -3,7 +3,8 @@
 	"package": "net.modgarden.flowerbed.client.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
-		"Mixin_EntityRenderer"
+		"Mixin_EntityRenderer",
+		"Mixin_Gui"
 	],
 	"injectors": {
 		"defaultRequire": 1

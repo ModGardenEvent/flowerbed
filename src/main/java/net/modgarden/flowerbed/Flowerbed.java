@@ -10,7 +10,7 @@ import net.modgarden.flowerbed.command.FlowerbedCommands;
 import net.modgarden.flowerbed.network.FlowerbedNetwork;
 import net.modgarden.flowerbed.network.clientbound.SendPerPlayerPvpValueClientboundPacket;
 import net.modgarden.flowerbed.registry.FlowerbedAttachments;
-import net.modgarden.flowerbed.registry.FlowerbedGamerules;
+import net.modgarden.flowerbed.registry.FlowerbedGameRules;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,7 +22,7 @@ public class Flowerbed implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		FlowerbedAttachments.init();
-		FlowerbedGamerules.init();
+		FlowerbedGameRules.init();
 		FlowerbedNetwork.init();
 
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) ->
@@ -30,7 +30,7 @@ public class Flowerbed implements ModInitializer {
 
 		ServerPlayerEvents.JOIN.register(serverPlayer -> {
 			if (serverPlayer.getServer() != null) {
-				ServerPlayNetworking.send(serverPlayer, new SendPerPlayerPvpValueClientboundPacket(serverPlayer.getServer().getGameRules().getBoolean(FlowerbedGamerules.PER_PLAYER_PVP)));
+				ServerPlayNetworking.send(serverPlayer, new SendPerPlayerPvpValueClientboundPacket(serverPlayer.getServer().getGameRules().getBoolean(FlowerbedGameRules.PER_PLAYER_PVP)));
 			}
 		});
 	}

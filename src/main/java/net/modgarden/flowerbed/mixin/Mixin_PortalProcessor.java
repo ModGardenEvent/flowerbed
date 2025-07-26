@@ -7,7 +7,7 @@ import net.minecraft.world.entity.PortalProcessor;
 import net.minecraft.world.level.block.EndPortalBlock;
 import net.minecraft.world.level.block.NetherPortalBlock;
 import net.minecraft.world.level.block.Portal;
-import net.modgarden.flowerbed.registry.FlowerbedGamerules;
+import net.modgarden.flowerbed.registry.FlowerbedGameRules;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -21,7 +21,7 @@ public class Mixin_PortalProcessor {
 
 	@ModifyReturnValue(method = "processPortalTeleportation", at = @At(value = "RETURN", ordinal = 0))
 	private boolean flowerbed$cancelPortalTeleportation(boolean original, @Local(argsOnly = true) ServerLevel serverLevel) {
-		if (serverLevel.getServer().getGameRules().getBoolean(FlowerbedGamerules.DISABLE_ENTERING_PORTALS) && (portal instanceof NetherPortalBlock || portal instanceof EndPortalBlock)) {
+		if (serverLevel.getServer().getGameRules().getBoolean(FlowerbedGameRules.DISABLE_ENTERING_PORTALS) && (portal instanceof NetherPortalBlock || portal instanceof EndPortalBlock)) {
 			return false;
 		}
 		return original;
