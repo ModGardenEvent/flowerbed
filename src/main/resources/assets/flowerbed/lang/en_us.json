@@ -10,5 +10,10 @@
 	"commands.flowerbed.pvp.toggle.success.disable.gamerule_disabled": "All PvP towards you will be disabled if per player PvP becomes enabled",
 
 	"commands.flowerbed.pvp.toggle.failed.source": "You may only toggle PvP for yourself",
-	"commands.flowerbed.pvp.toggle.failed.non_player": "You may not toggle PvP on a non player entity"
+	"commands.flowerbed.pvp.toggle.failed.non_player": "You may not toggle PvP on a non player entity",
+
+	"gamerule.flowerbed:per_player_pvp": "Per Player PvP",
+	"gamerule.flowerbed:per_player_pvp.description": "Modifies PvP to be an opt in system via the /pvp toggle command.",
+	"gamerule.flowerbed:disable_entering_portals": "Disable Entering Portals",
+	"gamerule.flowerbed:disable_entering_portals.description": "Disables entering Nether and End Portals."
 }
