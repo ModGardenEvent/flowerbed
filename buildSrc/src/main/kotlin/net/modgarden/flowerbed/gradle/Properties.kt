@@ -1,6 +1,9 @@
 package net.modgarden.flowerbed.gradle
 
 object Properties {
+	const val MOD_VERSION = "1.0.0"
+	const val JAVA_VERSION = 21
+
 	const val GROUP = "net.modgarden"
 	const val MOD_NAME = "Flowerbed"
 	const val ARCHIVES_NAME = "flowerbed"
@@ -10,8 +13,9 @@ object Properties {
 	const val DESCRIPTION = " A utility mod for Mod Garden events. "
 	const val LICENSE = "MPL-2.0"
 
-	const val MODRINTH_PAGE = "https://modrinth.com/mod/modrinth-project"
-	const val MODRINTH_PROJECT_ID = "????????"
+	const val FABRIC_LOADER_RANGE = ">=0.16"
+	const val FABRIC_MINECRAFT_RANGE = "1.21.5"
+
 	const val GITHUB_REPO = "ModGardenEvent/flowerbed"
-	const val GITHUB_COMMITISH = Versions.MINECRAFT
+	const val GITHUB_COMMITISH = "1.21.5"
 }

@@ -1,5 +1,4 @@
 import net.modgarden.flowerbed.gradle.Properties
-import net.modgarden.flowerbed.gradle.Versions
 
 plugins {
 	id("fabric-loom") version "1.10-SNAPSHOT"
@@ -7,7 +6,7 @@ plugins {
 }
 
 base.archivesName.set(Properties.MOD_ID)
-version = "${Versions.MOD}+${Versions.MINECRAFT}"
+version = "${Properties.MOD_VERSION}+${libs.versions.minecraft.get()}"
 group = Properties.GROUP
 
 loom {
@@ -30,15 +29,15 @@ repositories {
 }
 
 dependencies {
-	minecraft("com.mojang:minecraft:${Versions.MINECRAFT}")
+	minecraft(libs.minecraft)
 	mappings(loom.layered {
 		officialMojangMappings()
-		parchment("org.parchmentmc.data:parchment-${Versions.MINECRAFT}:${Versions.PARCHMENT}")
+		parchment(libs.parchment)
 	})
 
-	modImplementation("net.fabricmc:fabric-loader:${Versions.FABRIC_LOADER}")
-	modImplementation("net.fabricmc.fabric-api:fabric-api:${Versions.FABRIC_API}")
-	modLocalRuntime("com.terraformersmc:modmenu:${Versions.MOD_MENU}")
+	modImplementation(libs.fabric.loader)
+	modImplementation(libs.fabric.api)
+	modLocalRuntime(libs.mod.menu)
 }
 
 tasks {
@@ -50,20 +49,20 @@ tasks {
 	}
 
 	val expandProps = mapOf(
-			"mod_version" to Versions.MOD,
+			"mod_version" to Properties.MOD_VERSION,
 			"group" to project.group,
-			"minecraft_version" to Versions.MINECRAFT,
-			"fabric_api_version" to Versions.FABRIC_API,
-			"fabric_loader_version" to Versions.FABRIC_LOADER,
-			"fabric_minecraft_version_range" to Versions.FABRIC_MINECRAFT_RANGE,
-			"fabric_loader_range" to Versions.FABRIC_LOADER_RANGE,
+			"minecraft_version" to libs.versions.minecraft.get(),
+			"fabric_api_version" to libs.versions.fabric.api.get(),
+			"fabric_loader_version" to libs.versions.fabric.loader.get(),
+			"fabric_minecraft_version_range" to Properties.FABRIC_MINECRAFT_RANGE,
+			"fabric_loader_range" to Properties.FABRIC_LOADER_RANGE,
 			"mod_name" to Properties.MOD_NAME,
 			"mod_author" to Properties.MOD_AUTHOR,
 			"fabric_mod_contributors" to Properties.MOD_CONTRIBUTORS.joinToString(separator = "\",\n\t\t\""),
 			"mod_id" to Properties.MOD_ID,
 			"mod_license" to Properties.LICENSE,
 			"mod_description" to Properties.DESCRIPTION,
-			"java_version" to Versions.JAVA
+			"java_version" to Properties.JAVA_VERSION
 	)
 
 	val processResourcesTasks = listOf("processResources", "processDatagenResources")
