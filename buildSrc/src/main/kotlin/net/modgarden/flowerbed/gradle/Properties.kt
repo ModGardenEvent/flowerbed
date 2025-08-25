@@ -6,7 +6,6 @@ object Properties {
 
 	const val GROUP = "net.modgarden"
 	const val MOD_NAME = "Flowerbed"
-	const val ARCHIVES_NAME = "flowerbed"
 	const val MOD_ID = "flowerbed"
 	const val MOD_AUTHOR = "Mod Garden"
 	val MOD_CONTRIBUTORS = listOf("MerchantCalico")
