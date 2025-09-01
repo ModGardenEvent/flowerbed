@@ -5,10 +5,12 @@
 	"mixins": [
 		"Accessor_CommandSourceStack",
 		"Accessor_ServerPlayerCommandSource",
+		"MIxin_CarvedPumpkinBlock",
 		"Mixin_FoodData",
 		"Mixin_Player",
 		"Mixin_PortalProcessor",
-		"Mixin_ServerPlayer"
+		"Mixin_ServerPlayer",
+		"MIxin_WitherSkullBlock"
 	],
 	"injectors": {
 		"defaultRequire": 1

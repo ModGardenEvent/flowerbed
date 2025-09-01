@@ -22,6 +22,12 @@ public class FlowerbedGameRules {
 	public static final GameRules.Key<GameRules.BooleanValue> DISABLE_EXHAUSTION =
 			GameRuleRegistry.register("flowerbed:disable_exhaustion", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
 
+	public static final GameRules.Key<GameRules.BooleanValue> DISABLE_GOLEM_SPAWNING =
+			GameRuleRegistry.register("flowerbed:disable_golem_spawning", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(true));
+
+	public static final GameRules.Key<GameRules.BooleanValue> DISABLE_WITHER_SPAWNING =
+			GameRuleRegistry.register("flowerbed:disable_wither_spawning", GameRules.Category.MOBS, GameRuleFactory.createBooleanRule(true));
+
 	public static final GameRules.Key<GameRules.BooleanValue> DISABLE_ENTERING_PORTALS =
 			GameRuleRegistry.register("flowerbed:disable_entering_portals", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(true));
 
