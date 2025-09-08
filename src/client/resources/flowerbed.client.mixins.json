@@ -4,7 +4,10 @@
 	"compatibilityLevel": "JAVA_21",
 	"client": [
 		"Mixin_EntityRenderer",
-		"Mixin_Gui"
+		"Mixin_Gui",
+		"Mixin_JoinMultiplayerScreen",
+		"Mixin_SeverSelectionList",
+		"Mixin_SeverSelectionList$Mixin_OnlineServerEntry"
 	],
 	"injectors": {
 		"defaultRequire": 1
