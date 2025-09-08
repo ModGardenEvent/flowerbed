@@ -8,7 +8,7 @@ object Properties {
 	const val MOD_NAME = "Flowerbed"
 	const val MOD_ID = "flowerbed"
 	const val MOD_AUTHOR = "Mod Garden"
-	val MOD_CONTRIBUTORS = listOf("MerchantCalico")
+	val MOD_CONTRIBUTORS = listOf("MerchantCalico", "Sylv <contact@sylv.gay>")
 	const val DESCRIPTION = " A utility mod for Mod Garden events. "
 	const val LICENSE = "MPL-2.0"
 
