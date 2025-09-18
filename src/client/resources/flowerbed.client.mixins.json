@@ -7,7 +7,8 @@
 		"Mixin_Gui",
 		"Mixin_JoinMultiplayerScreen",
 		"Mixin_SeverSelectionList",
-		"Mixin_SeverSelectionList$Mixin_OnlineServerEntry"
+		"Mixin_SeverSelectionList$Mixin_OnlineServerEntry",
+		"Mixin_WorldBorderRenderer"
 	],
 	"injectors": {
 		"defaultRequire": 1

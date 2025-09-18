@@ -6,8 +6,10 @@ import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.GameRules;
 import net.modgarden.flowerbed.command.FlowerbedCommands;
 import net.modgarden.flowerbed.network.FlowerbedNetwork;
+import net.modgarden.flowerbed.network.clientbound.ClientboundShowWorldBorderPacket;
 import net.modgarden.flowerbed.network.clientbound.SendPerPlayerPvpValueClientboundPacket;
 import net.modgarden.flowerbed.registry.FlowerbedAttachments;
 import net.modgarden.flowerbed.registry.FlowerbedGameRules;
@@ -30,7 +32,9 @@ public class Flowerbed implements ModInitializer {
 
 		ServerPlayerEvents.JOIN.register(serverPlayer -> {
 			if (serverPlayer.getServer() != null) {
-				ServerPlayNetworking.send(serverPlayer, new SendPerPlayerPvpValueClientboundPacket(serverPlayer.getServer().getGameRules().getBoolean(FlowerbedGameRules.PER_PLAYER_PVP)));
+				GameRules gameRules = serverPlayer.getServer().getGameRules();
+				ServerPlayNetworking.send(serverPlayer, new SendPerPlayerPvpValueClientboundPacket(gameRules.getBoolean(FlowerbedGameRules.PER_PLAYER_PVP)));
+				ServerPlayNetworking.send(serverPlayer, new ClientboundShowWorldBorderPacket(gameRules.getBoolean(FlowerbedGameRules.SHOW_WORLD_BORDER)));
 			}
 		});
 	}

@@ -7,10 +7,12 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
+import net.modgarden.flowerbed.network.clientbound.ClientboundShowWorldBorderPacket;
 import net.modgarden.flowerbed.network.clientbound.SendPerPlayerPvpValueClientboundPacket;
 
 public class FlowerbedGameRules {
 	public static boolean disablePassiveHungerLossGameruleEnabled = false;
+	public static boolean showWorldBorder = true;
 
 	public static final GameRules.Key<GameRules.BooleanValue> PER_PLAYER_PVP =
 			GameRuleRegistry.register("flowerbed:per_player_pvp", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true,
@@ -30,6 +32,13 @@ public class FlowerbedGameRules {
 
 	public static final GameRules.Key<GameRules.BooleanValue> DISABLE_ENTERING_PORTALS =
 			GameRuleRegistry.register("flowerbed:disable_entering_portals", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(true));
+
+	public static final GameRules.Key<GameRules.BooleanValue> SHOW_WORLD_BORDER =
+			GameRuleRegistry.register("flowerbed:show_world_border", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(true, (server, value) -> {
+				for (ServerPlayer serverPlayer : server.getPlayerList().getPlayers()) {
+					ServerPlayNetworking.send(serverPlayer, new ClientboundShowWorldBorderPacket(value.get()));
+				}
+			}));
 
 	public static void init() {
 
