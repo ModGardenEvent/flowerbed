@@ -10,6 +10,8 @@ import net.minecraft.world.level.GameRules;
 import net.modgarden.flowerbed.command.FlowerbedCommands;
 import net.modgarden.flowerbed.network.FlowerbedNetwork;
 import net.modgarden.flowerbed.network.clientbound.ClientboundShowWorldBorderPacket;
+import net.modgarden.flowerbed.network.clientbound.ClientboundWorldBorderFadeTicksPacket;
+import net.modgarden.flowerbed.network.clientbound.ClientboundWorldBorderRenderDistancePacket;
 import net.modgarden.flowerbed.network.clientbound.SendPerPlayerPvpValueClientboundPacket;
 import net.modgarden.flowerbed.registry.FlowerbedAttachments;
 import net.modgarden.flowerbed.registry.FlowerbedGameRules;
@@ -35,6 +37,8 @@ public class Flowerbed implements ModInitializer {
 				GameRules gameRules = serverPlayer.getServer().getGameRules();
 				ServerPlayNetworking.send(serverPlayer, new SendPerPlayerPvpValueClientboundPacket(gameRules.getBoolean(FlowerbedGameRules.PER_PLAYER_PVP)));
 				ServerPlayNetworking.send(serverPlayer, new ClientboundShowWorldBorderPacket(gameRules.getBoolean(FlowerbedGameRules.SHOW_WORLD_BORDER)));
+				ServerPlayNetworking.send(serverPlayer, new ClientboundWorldBorderRenderDistancePacket(gameRules.getInt(FlowerbedGameRules.WORLD_BORDER_RENDER_DISTANCE)));
+				ServerPlayNetworking.send(serverPlayer, new ClientboundWorldBorderFadeTicksPacket(gameRules.getInt(FlowerbedGameRules.WORLD_BORDER_FADE_TICKS)));
 			}
 		});
 	}
