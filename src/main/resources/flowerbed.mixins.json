@@ -10,7 +10,8 @@
 		"Mixin_Player",
 		"Mixin_PortalProcessor",
 		"Mixin_ServerPlayer",
-		"MIxin_WitherSkullBlock"
+		"MIxin_WitherSkullBlock",
+		"fix.log.Mixin_IdDispatchCodec"
 	],
 	"injectors": {
 		"defaultRequire": 1

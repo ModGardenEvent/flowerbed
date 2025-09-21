@@ -26,6 +26,20 @@ repositories {
 	maven("https://maven.terraformersmc.com/") {
 		name = "TerraformersMC"
 	}
+	exclusiveContent {
+		forRepository {
+			maven {
+				name = "Modrinth"
+				url = uri("https://api.modrinth.com/maven")
+			}
+		}
+		filter {
+			includeGroup("maven.modrinth")
+		}
+	}
+	maven("https://maven.nucleoid.xyz") {
+		name = "Nucleoid"
+	}
 }
 
 dependencies {
