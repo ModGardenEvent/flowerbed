@@ -12,7 +12,12 @@
 		"Mixin_ServerPlayer",
 		"MIxin_WitherSkullBlock",
 		"fix.log.Mixin_IdDispatchCodec",
-		"showcase.spawning.Mixin_TrialSpawner"
+		"showcase.spawning.Mixin_TrialSpawner",
+		"showcase.spawning.invulnerability.Mixin_ArmorStandItem",
+		"showcase.spawning.invulnerability.Mixin_BoatItem",
+		"showcase.spawning.invulnerability.Mixin_HangingEntityItem",
+		"showcase.spawning.invulnerability.Mixin_SpawnEggItem",
+		"showcase.spawning.invulnerability.Mixin_SummonCommand"
 	],
 	"injectors": {
 		"defaultRequire": 1

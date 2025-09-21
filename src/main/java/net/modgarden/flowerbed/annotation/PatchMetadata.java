@@ -7,7 +7,7 @@ import java.lang.annotation.*;
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
+@Target({ElementType.TYPE, ElementType.PACKAGE})
 public @interface PatchMetadata {
 	/**
 	 * A lowercase alphanumeric & underscored identifier of the patch.
