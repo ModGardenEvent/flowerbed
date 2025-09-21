@@ -11,7 +11,8 @@
 		"Mixin_PortalProcessor",
 		"Mixin_ServerPlayer",
 		"MIxin_WitherSkullBlock",
-		"fix.log.Mixin_IdDispatchCodec"
+		"fix.log.Mixin_IdDispatchCodec",
+		"showcase.spawning.Mixin_TrialSpawner"
 	],
 	"injectors": {
 		"defaultRequire": 1
