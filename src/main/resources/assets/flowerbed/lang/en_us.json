@@ -11,6 +11,7 @@
 
 	"commands.flowerbed.pvp.toggle.failed.source": "You may only toggle PvP for yourself",
 	"commands.flowerbed.pvp.toggle.failed.non_player": "You may not toggle PvP on a non player entity",
+	"commands.flowerbed.shrug.failed.no_server": "You are (somehow) not connected to a server. Congratulations! This should never ever happen, yet you somehow beat the odds and did it anyway. Tiny Pineapple is disappointed in you. Do you feel happy with yourself, you monster?",
 
 	"gamerule.flowerbed:per_player_pvp": "Per Player PvP",
 	"gamerule.flowerbed:per_player_pvp.description": "Modifies PvP to be an opt in system via the /pvp toggle command.",

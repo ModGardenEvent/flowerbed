@@ -40,6 +40,9 @@ repositories {
 	maven("https://maven.nucleoid.xyz") {
 		name = "Nucleoid"
 	}
+	maven("https://maven.gegy.dev/releases") {
+		name = "Gegy"
+	}
 }
 
 dependencies {
@@ -52,6 +55,12 @@ dependencies {
 	modImplementation(libs.fabric.loader)
 	modImplementation(libs.fabric.api)
 	modLocalRuntime(libs.mod.menu)
+
+	// Testing
+	modLocalRuntime(libs.player.roles)
+
+	// Libraries
+	modImplementation(libs.fabric.permissions)
 }
 
 tasks {

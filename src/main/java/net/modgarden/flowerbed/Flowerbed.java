@@ -1,5 +1,6 @@
 package net.modgarden.flowerbed;
 
+import me.lucko.fabric.api.permissions.v0.Permissions;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
@@ -7,12 +8,14 @@ import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.GameType;
 import net.modgarden.flowerbed.command.FlowerbedCommands;
 import net.modgarden.flowerbed.network.FlowerbedNetwork;
 import net.modgarden.flowerbed.network.clientbound.ClientboundShowWorldBorderPacket;
 import net.modgarden.flowerbed.network.clientbound.ClientboundWorldBorderFadeTicksPacket;
 import net.modgarden.flowerbed.network.clientbound.ClientboundWorldBorderRenderDistancePacket;
 import net.modgarden.flowerbed.network.clientbound.SendPerPlayerPvpValueClientboundPacket;
+import net.modgarden.flowerbed.permission.FlowerbedPermissions;
 import net.modgarden.flowerbed.registry.FlowerbedAttachments;
 import net.modgarden.flowerbed.registry.FlowerbedGameRules;
 import org.slf4j.Logger;
@@ -39,6 +42,11 @@ public class Flowerbed implements ModInitializer {
 				ServerPlayNetworking.send(serverPlayer, new ClientboundShowWorldBorderPacket(gameRules.getBoolean(FlowerbedGameRules.SHOW_WORLD_BORDER)));
 				ServerPlayNetworking.send(serverPlayer, new ClientboundWorldBorderRenderDistancePacket(gameRules.getInt(FlowerbedGameRules.WORLD_BORDER_RENDER_DISTANCE)));
 				ServerPlayNetworking.send(serverPlayer, new ClientboundWorldBorderFadeTicksPacket(gameRules.getInt(FlowerbedGameRules.WORLD_BORDER_FADE_TICKS)));
+
+				// Ensure players without permission are put in Adventure Mode
+				if (!Permissions.check(serverPlayer, FlowerbedPermissions.NON_ADVENTURE)) {
+					serverPlayer.setGameMode(GameType.ADVENTURE);
+				}
 			}
 		});
 	}
