@@ -3,6 +3,7 @@ package net.modgarden.flowerbed.client.command;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.multiplayer.ClientPacketListener;
 import net.minecraft.network.chat.Component;
 
@@ -19,7 +20,11 @@ public final class FlowerbedClientCommands {
 								ctx.getSource().sendError(Component.translatable("commands.flowerbed.shrug.failed.no_server"));
 								return 0;
 							}
-							connection.sendChat(message + " ¯\\_(ツ)_/¯");
+							if (FabricLoader.getInstance().isModLoaded("styledchat")) {
+								connection.sendChat(message + " ¯\\\\_(ツ)_/¯");
+							} else {
+								connection.sendChat(message + " ¯\\_(ツ)_/¯");
+							}
 							return 1;
 						}))
 		));
