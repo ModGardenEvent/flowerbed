@@ -13,12 +13,16 @@
 		"MIxin_WitherSkullBlock",
 		"fix.log.Mixin_IdDispatchCodec",
 		"showcase.gamemode.Mixin_ServerPlayer",
-		"showcase.spawning.Mixin_TrialSpawner",
-		"showcase.spawning.invulnerability.Mixin_ArmorStandItem",
-		"showcase.spawning.invulnerability.Mixin_BoatItem",
-		"showcase.spawning.invulnerability.Mixin_HangingEntityItem",
-		"showcase.spawning.invulnerability.Mixin_SpawnEggItem",
-		"showcase.spawning.invulnerability.Mixin_SummonCommand"
+		"showcase.griefing.Mixin_FarmBlock",
+		"showcase.griefing.invulnerability.Mixin_ArmorStandItem",
+		"showcase.griefing.invulnerability.Mixin_BoatItem",
+		"showcase.griefing.invulnerability.Mixin_HangingEntityItem",
+		"showcase.griefing.invulnerability.Mixin_SpawnEggItem",
+		"showcase.griefing.invulnerability.Mixin_SummonCommand",
+		"showcase.griefing.prevent_modfest_1_20.Mixin_EntityArgument",
+		"showcase.griefing.prevent_modfest_1_20.Mixin_EntitySelectorOptions",
+		"showcase.griefing.prevent_modfest_1_20.Mixin_EntitySelectorParser",
+		"showcase.spawning.Mixin_TrialSpawner"
 	],
 	"injectors": {
 		"defaultRequire": 1

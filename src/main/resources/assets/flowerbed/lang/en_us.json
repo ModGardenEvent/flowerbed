@@ -18,5 +18,6 @@
 	"gamerule.flowerbed:disable_exhaustion": "Disable Exhaustion",
 	"gamerule.flowerbed:disable_exhaustion.description": "Disables entirely passive forms of hunger loss, including non-saturation based healing.",
 	"gamerule.flowerbed:disable_entering_portals": "Disable Entering Portals",
-	"gamerule.flowerbed:disable_entering_portals.description": "Disables entering Nether and End Portals."
+	"gamerule.flowerbed:disable_entering_portals.description": "Disables entering Nether and End Portals.",
+	"argument.flowerbed.e_not_allowed": "Usage of @e or @n is not allowed. Include i_understand_the_consequences_of_my_actions=1 in your query to continue."
 }
