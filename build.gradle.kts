@@ -59,6 +59,9 @@ dependencies {
 	// Testing
 	modLocalRuntime(libs.player.roles)
 
+	// Fix Mods
+	modImplementation(libs.eiv)
+
 	// Libraries
 	modImplementation(libs.fabric.permissions)
 }

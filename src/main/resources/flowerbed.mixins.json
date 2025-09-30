@@ -1,30 +1,31 @@
 {
-	"required": true,
-	"package": "net.modgarden.flowerbed.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-		"Accessor_CommandSourceStack",
-		"Accessor_ServerPlayerCommandSource",
-		"MIxin_CarvedPumpkinBlock",
-		"Mixin_FoodData",
-		"Mixin_Player",
-		"Mixin_PortalProcessor",
-		"Mixin_ServerPlayer",
-		"MIxin_WitherSkullBlock",
-		"fix.log.Mixin_IdDispatchCodec",
-		"showcase.gamemode.Mixin_ServerPlayer",
-		"showcase.griefing.Mixin_FarmBlock",
-		"showcase.griefing.invulnerability.Mixin_ArmorStandItem",
-		"showcase.griefing.invulnerability.Mixin_BoatItem",
-		"showcase.griefing.invulnerability.Mixin_HangingEntityItem",
-		"showcase.griefing.invulnerability.Mixin_SpawnEggItem",
-		"showcase.griefing.invulnerability.Mixin_SummonCommand",
-		"showcase.griefing.prevent_modfest_1_20.Mixin_EntityArgument",
-		"showcase.griefing.prevent_modfest_1_20.Mixin_EntitySelectorOptions",
-		"showcase.griefing.prevent_modfest_1_20.Mixin_EntitySelectorParser",
-		"showcase.spawning.Mixin_TrialSpawner"
-	],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "package": "net.modgarden.flowerbed.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "Accessor_CommandSourceStack",
+    "Accessor_ServerPlayerCommandSource",
+    "MIxin_CarvedPumpkinBlock",
+    "Mixin_FoodData",
+    "Mixin_Player",
+    "Mixin_PortalProcessor",
+    "Mixin_ServerPlayer",
+    "MIxin_WitherSkullBlock",
+    "fix.eiv.Mixin_FabricEivResolver",
+    "fix.log.Mixin_IdDispatchCodec",
+    "showcase.gamemode.Mixin_ServerPlayer",
+    "showcase.griefing.Mixin_FarmBlock",
+    "showcase.griefing.invulnerability.Mixin_ArmorStandItem",
+    "showcase.griefing.invulnerability.Mixin_BoatItem",
+    "showcase.griefing.invulnerability.Mixin_HangingEntityItem",
+    "showcase.griefing.invulnerability.Mixin_SpawnEggItem",
+    "showcase.griefing.invulnerability.Mixin_SummonCommand",
+    "showcase.griefing.prevent_modfest_1_20.Mixin_EntityArgument",
+    "showcase.griefing.prevent_modfest_1_20.Mixin_EntitySelectorOptions",
+    "showcase.griefing.prevent_modfest_1_20.Mixin_EntitySelectorParser",
+    "showcase.spawning.Mixin_TrialSpawner"
+  ],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }

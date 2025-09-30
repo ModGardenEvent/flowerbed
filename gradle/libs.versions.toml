@@ -10,6 +10,9 @@ mod-menu = "14.0.0-rc.2"
 # Testing
 player-roles = "1.6.13"
 
+# Fixing
+eiv = "x5OsJXLC"
+
 # Libraries
 fabric-permissions = "0.3.3"
 
@@ -23,6 +26,9 @@ mod-menu = { module = "com.terraformersmc:modmenu", version.ref = "mod-menu" }
 
 # Testing
 player-roles = { module = "dev.gegy:player-roles", version.ref = "player-roles" }
+
+# Fixing
+eiv = {module = "maven.modrinth:eiv", version.ref = "eiv"}
 
 # Libraries
 fabric-permissions = { module = "me.lucko:fabric-permissions-api", version.ref = "fabric-permissions" }
