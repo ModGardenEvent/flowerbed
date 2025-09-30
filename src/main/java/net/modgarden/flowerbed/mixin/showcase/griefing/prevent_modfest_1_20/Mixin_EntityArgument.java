@@ -31,7 +31,7 @@ public class Mixin_EntityArgument {
 			@Local EntitySelector entitySelector,
 			@Local EntitySelectorParser entitySelectorParser
 	) throws CommandSyntaxException {
-		if (!entitySelector.includesEntities() || entitySelector.isSelfSelector()) return;
+		if (!entitySelector.includesEntities() || entitySelector.isSelfSelector() || !entitySelector.usesSelector()) return;
 
 		boolean unaware = !((Duck_ExtESP) entitySelectorParser)
 				.flowerbed$theUserUnderstandsTheConsequencesOfTheirActions();
