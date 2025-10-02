@@ -4,10 +4,15 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import io.github.hasdahlias.EatShroomsGoal;
 import net.minecraft.world.level.GameRules;
+import net.modgarden.flowerbed.annotation.PatchMetadata;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 
+@PatchMetadata(
+		id = "pigs_always_eat_mushrooms",
+		description = "Allows pigs to eat mushrooms regardless of Mob Griefing gamerule."
+)
 @Pseudo
 @Mixin(EatShroomsGoal.class)
 public class Mixin_EatShroomsGoal {
