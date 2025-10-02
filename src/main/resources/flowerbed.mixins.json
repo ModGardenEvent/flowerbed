@@ -13,6 +13,7 @@
     "MIxin_WitherSkullBlock",
     "fix.eiv.Mixin_FabricEivResolver",
     "fix.log.Mixin_IdDispatchCodec",
+    "fix.pigs_eat_mushrooms.Mixin_EatShroomsGoal",
     "showcase.gamemode.Mixin_ServerPlayer",
     "showcase.griefing.Mixin_FarmBlock",
     "showcase.griefing.invulnerability.Mixin_ArmorStandItem",

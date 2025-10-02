@@ -61,6 +61,7 @@ dependencies {
 
 	// Fix Mods
 	modImplementation(libs.eiv)
+	modImplementation(libs.pigs.eat.mushrooms)
 
 	// Libraries
 	modImplementation(libs.fabric.permissions)
