@@ -1,14 +1,14 @@
 package net.modgarden.flowerbed.gradle
 
 object Properties {
-	const val MOD_VERSION = "0.6.1"
+	const val MOD_VERSION = "0.6.2"
 	const val JAVA_VERSION = 21
 
 	const val GROUP = "net.modgarden"
 	const val MOD_NAME = "Flowerbed"
 	const val MOD_ID = "flowerbed"
 	const val MOD_AUTHOR = "Mod Garden"
-	val MOD_CONTRIBUTORS = listOf("MerchantCalico", "Sylv <contact@sylv.gay>")
+	val MOD_CONTRIBUTORS = listOf("MerchantCalico", "Sylv <contact@sylv.gay>", "cassiancc")
 	const val DESCRIPTION = " A utility mod for Mod Garden events. "
 	const val LICENSE = "MPL-2.0"
 
