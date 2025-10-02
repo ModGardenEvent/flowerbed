@@ -8,6 +8,7 @@
 		"Mixin_JoinMultiplayerScreen",
 		"Mixin_SeverSelectionList",
 		"Mixin_SeverSelectionList$Mixin_OnlineServerEntry",
+		"fix.Mixin_LogoRenderer",
 		"Mixin_WorldBorderRenderer"
 	],
 	"injectors": {
