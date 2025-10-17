@@ -12,8 +12,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @PatchMetadata(
-		id = "prevent_mod_garden_server_editing",
-		description = "Prevents the Mod Garden Server in the server list from being edited or deleted."
+		id = "prevent_first_server_editing",
+		description = "Prevents the first server in the server list from being edited or deleted."
 )
 @Mixin(JoinMultiplayerScreen.class)
 public class Mixin_JoinMultiplayerScreen {
@@ -23,9 +23,12 @@ public class Mixin_JoinMultiplayerScreen {
 	@Shadow
 	private Button deleteButton;
 
+	@Shadow
+	protected ServerSelectionList serverSelectionList;
+
 	@Inject(method = "onSelectedChange", at = @At(value = "TAIL"))
 	private void flowerbed$disallowModGardenEditingAndDeletion(CallbackInfo ci, @Local ServerSelectionList.Entry entry) {
-		if (entry instanceof ServerSelectionList.OnlineServerEntry onlineServerEntry && onlineServerEntry.getServerData().ip.equals("mc.modgarden.net")) {
+		if (serverSelectionList.children().indexOf(entry) == 0) {
 			editButton.active = false;
 			deleteButton.active = false;
 		}
