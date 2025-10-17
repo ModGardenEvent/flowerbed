@@ -17,6 +17,7 @@ loom {
 			sourceSet(sourceSets["client"])
 		}
 	}
+	accessWidenerPath = projectDir.resolve("src/main/resources/flowerbed.accesswidener")
 }
 
 repositories {

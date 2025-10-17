@@ -5,11 +5,11 @@
 	"client": [
 		"Mixin_EntityRenderer",
 		"Mixin_Gui",
-		"Mixin_JoinMultiplayerScreen",
-		"Mixin_SeverSelectionList",
-		"Mixin_SeverSelectionList$Mixin_OnlineServerEntry",
+		"Mixin_WorldBorderRenderer",
 		"fix.Mixin_LogoRenderer",
-		"Mixin_WorldBorderRenderer"
+		"showcase.screen.Mixin_JoinMultiplayerScreen",
+		"showcase.screen.Mixin_ServerSelectionList",
+		"showcase.screen.Mixin_ServerSelectionListOnlineServerEntry"
 	],
 	"injectors": {
 		"defaultRequire": 1
