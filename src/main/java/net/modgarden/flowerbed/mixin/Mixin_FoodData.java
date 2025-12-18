@@ -12,6 +12,6 @@ import org.spongepowered.asm.mixin.injection.At;
 public class Mixin_FoodData {
 	@WrapWithCondition(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/food/FoodData;addExhaustion(F)V", ordinal = 1))
 	private boolean flowerbed$cancelTickingHungerWithoutSaturation(FoodData instance, float f, @Local(argsOnly = true) ServerPlayer player) {
-		return !player.serverLevel().getGameRules().getBoolean(FlowerbedGameRules.DISABLE_EXHAUSTION);
+		return !player.level().getGameRules().get(FlowerbedGameRules.DISABLE_EXHAUSTION);
 	}
 }

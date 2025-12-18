@@ -21,7 +21,7 @@ public class Mixin_PortalProcessor {
 
 	@ModifyReturnValue(method = "processPortalTeleportation", at = @At(value = "RETURN", ordinal = 0))
 	private boolean flowerbed$cancelPortalTeleportation(boolean original, @Local(argsOnly = true) ServerLevel serverLevel) {
-		if (serverLevel.getServer().getGameRules().getBoolean(FlowerbedGameRules.DISABLE_ENTERING_PORTALS) && (portal instanceof NetherPortalBlock || portal instanceof EndPortalBlock)) {
+		if (serverLevel.getGameRules().get(FlowerbedGameRules.DISABLE_ENTERING_PORTALS) && (portal instanceof NetherPortalBlock || portal instanceof EndPortalBlock)) {
 			return false;
 		}
 		return original;

@@ -1,7 +1,7 @@
 import net.modgarden.flowerbed.gradle.Properties
 
 plugins {
-	id("fabric-loom") version "1.10-SNAPSHOT"
+	id("fabric-loom") version "1.14-SNAPSHOT"
 	id("maven-publish")
 }
 
@@ -58,11 +58,9 @@ dependencies {
 	modLocalRuntime(libs.mod.menu)
 
 	// Testing
-	modLocalRuntime(libs.player.roles)
+//	modLocalRuntime(libs.player.roles)
 
 	// Fix Mods
-	modImplementation(libs.eiv)
-	modImplementation(libs.pigs.eat.mushrooms)
 
 	// Libraries
 	modImplementation(libs.fabric.permissions)

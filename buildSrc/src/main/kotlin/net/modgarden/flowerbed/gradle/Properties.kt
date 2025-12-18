@@ -13,8 +13,8 @@ object Properties {
 	const val LICENSE = "MPL-2.0"
 
 	const val FABRIC_LOADER_RANGE = ">=0.16"
-	const val FABRIC_MINECRAFT_RANGE = "1.21.5"
+	const val FABRIC_MINECRAFT_RANGE = "1.21.11"
 
 	const val GITHUB_REPO = "ModGardenEvent/flowerbed"
-	const val GITHUB_COMMITISH = "1.21.5"
+	const val GITHUB_COMMITISH = "1.21.11"
 }

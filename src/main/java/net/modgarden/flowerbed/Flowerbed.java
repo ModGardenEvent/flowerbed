@@ -5,9 +5,10 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents;
+import net.fabricmc.fabric.api.gamerule.v1.GameRuleEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.GameRules;
+import net.minecraft.resources.Identifier;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.GameType;
 import net.modgarden.flowerbed.command.FlowerbedCommands;
 import net.modgarden.flowerbed.network.FlowerbedNetwork;
@@ -36,12 +37,12 @@ public class Flowerbed implements ModInitializer {
 				FlowerbedCommands.register(dispatcher, registryAccess));
 
 		ServerPlayerEvents.JOIN.register(serverPlayer -> {
-			if (serverPlayer.getServer() != null) {
-				GameRules gameRules = serverPlayer.getServer().getGameRules();
-				ServerPlayNetworking.send(serverPlayer, new SendPerPlayerPvpValueClientboundPacket(gameRules.getBoolean(FlowerbedGameRules.PER_PLAYER_PVP)));
-				ServerPlayNetworking.send(serverPlayer, new ClientboundShowWorldBorderPacket(gameRules.getBoolean(FlowerbedGameRules.SHOW_WORLD_BORDER)));
-				ServerPlayNetworking.send(serverPlayer, new ClientboundWorldBorderRenderDistancePacket(gameRules.getInt(FlowerbedGameRules.WORLD_BORDER_RENDER_DISTANCE)));
-				ServerPlayNetworking.send(serverPlayer, new ClientboundWorldBorderFadeTicksPacket(gameRules.getInt(FlowerbedGameRules.WORLD_BORDER_FADE_TICKS)));
+			if (serverPlayer.level() != null) {
+				var gameRules = serverPlayer.level().getGameRules();
+				ServerPlayNetworking.send(serverPlayer, new SendPerPlayerPvpValueClientboundPacket(gameRules.get(FlowerbedGameRules.PER_PLAYER_PVP)));
+				ServerPlayNetworking.send(serverPlayer, new ClientboundShowWorldBorderPacket(gameRules.get(FlowerbedGameRules.SHOW_WORLD_BORDER)));
+				ServerPlayNetworking.send(serverPlayer, new ClientboundWorldBorderRenderDistancePacket(gameRules.get(FlowerbedGameRules.WORLD_BORDER_RENDER_DISTANCE)));
+				ServerPlayNetworking.send(serverPlayer, new ClientboundWorldBorderFadeTicksPacket(gameRules.get(FlowerbedGameRules.WORLD_BORDER_FADE_TICKS)));
 
 				// Ensure players without permission are put in Adventure Mode
 				if (!Permissions.check(serverPlayer, FlowerbedPermissions.NON_ADVENTURE)) {
@@ -49,9 +50,29 @@ public class Flowerbed implements ModInitializer {
 				}
 			}
 		});
+		GameRuleEvents.changeCallback(FlowerbedGameRules.PER_PLAYER_PVP).register((booleanValue, server) -> {
+			for (ServerPlayer serverPlayer : server.getPlayerList().getPlayers()) {
+				ServerPlayNetworking.send(serverPlayer, new SendPerPlayerPvpValueClientboundPacket(booleanValue));
+			}
+		});
+		GameRuleEvents.changeCallback(FlowerbedGameRules.SHOW_WORLD_BORDER).register((booleanValue, server) -> {
+			for (ServerPlayer serverPlayer : server.getPlayerList().getPlayers()) {
+				ServerPlayNetworking.send(serverPlayer, new ClientboundShowWorldBorderPacket(booleanValue));
+			}
+		});
+		GameRuleEvents.changeCallback(FlowerbedGameRules.WORLD_BORDER_RENDER_DISTANCE).register((integerValue, server) -> {
+			for (ServerPlayer serverPlayer : server.getPlayerList().getPlayers()) {
+				ServerPlayNetworking.send(serverPlayer, new ClientboundWorldBorderRenderDistancePacket(integerValue));
+			}
+		});
+		GameRuleEvents.changeCallback(FlowerbedGameRules.WORLD_BORDER_FADE_TICKS).register((integerValue, server) -> {
+			for (ServerPlayer serverPlayer : server.getPlayerList().getPlayers()) {
+				ServerPlayNetworking.send(serverPlayer, new ClientboundWorldBorderFadeTicksPacket(integerValue));
+			}
+		});
 	}
 
-	public static ResourceLocation asResource(String path) {
-		return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+	public static Identifier asResource(String path) {
+		return Identifier.fromNamespaceAndPath(MOD_ID, path);
 	}
 }

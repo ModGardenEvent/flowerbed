@@ -1,8 +1,9 @@
 package net.modgarden.flowerbed.client.render;
 
-import net.minecraft.world.level.border.WorldBorder;
+import net.minecraft.client.renderer.state.WorldBorderRenderState;
 import net.minecraft.world.phys.Vec3;
 import net.modgarden.flowerbed.registry.FlowerbedGameRules;
+import org.jetbrains.annotations.UnknownNullability;
 
 /**
  * Copied from Barricade lol
@@ -13,10 +14,16 @@ public final class OpacityState {
 	private static boolean isChanging = false;
 	private static boolean shouldRender = false;
 
-	public static void update(WorldBorder worldBorder, Vec3 cameraPosition) {
+	public static void update(@UnknownNullability WorldBorderRenderState worldBorder, Vec3 cameraPosition) {
 		int fadeTicks = FlowerbedGameRules.worldBorderFadeTicks;
 		int fadeDistance = FlowerbedGameRules.worldBorderRenderDistance;
-		boolean shouldRender = worldBorder.getDistanceToBorder(cameraPosition.x(), cameraPosition.z()) < fadeDistance;
+		boolean shouldRender = false;
+		for (WorldBorderRenderState.DistancePerDirection distancePerDirection : worldBorder.closestBorder(cameraPosition.x(), cameraPosition.z())) {
+			if (distancePerDirection.distance() < fadeDistance) {
+				shouldRender = true;
+				break;
+			}
+		}
 		boolean fadeBarriers = fadeTicks > 0.0f;
 		if (fadeBarriers && OpacityState.shouldRender && !shouldRender) {
 			OpacityState.isFading = true;

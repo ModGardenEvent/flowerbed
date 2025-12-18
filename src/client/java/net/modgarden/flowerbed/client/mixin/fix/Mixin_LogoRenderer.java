@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 public class Mixin_LogoRenderer {
 	@ModifyArg(
 			method = "renderLogo(Lnet/minecraft/client/gui/GuiGraphics;IFI)V",
-			at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphics;blit(Ljava/util/function/Function;Lnet/minecraft/resources/ResourceLocation;IIFFIIIII)V", ordinal = 0),
+			at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphics;blit(Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIFFIIIII)V", ordinal = 0),
 			index = 7
 	)
 	private int flowerbed$extendLogoTextureV(int v) {

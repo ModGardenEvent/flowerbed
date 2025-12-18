@@ -5,18 +5,21 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.WorldBorderRenderer;
+import net.minecraft.client.renderer.state.WorldBorderRenderState;
 import net.minecraft.world.level.border.WorldBorder;
 import net.minecraft.world.phys.Vec3;
 import net.modgarden.flowerbed.client.render.OpacityState;
 import net.modgarden.flowerbed.registry.FlowerbedGameRules;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(WorldBorderRenderer.class)
 public class Mixin_WorldBorderRenderer {
 	@WrapMethod(method = "render")
 	private void flowerbed$cancelRender(
-			WorldBorder worldBorder,
+			WorldBorderRenderState worldBorder,
 			Vec3 cameraPosition,
 			double renderDistance,
 			double farPlaneDepth,
@@ -29,17 +32,15 @@ public class Mixin_WorldBorderRenderer {
 		}
 	}
 
-	@WrapOperation(
-			method = "render",
-			at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/systems/RenderSystem;setShaderColor(FFFF)V", ordinal = 0)
+	/*
+	@Inject(
+			method = "extract",
+			at = @At(value = "RETURN")
 	)
 	private void flowerbed$changeAlpha(
-			float f,
-			float g,
-			float h,
-			float i,
-			Operation<Void> original
+			WorldBorder worldBorder, float f, Vec3 vec3, double d, WorldBorderRenderState worldBorderRenderState, CallbackInfo ci
 	) {
-		original.call(f, g, h, i * OpacityState.getAlpha(Minecraft.getInstance().getDeltaTracker().getRealtimeDeltaTicks()));
+		worldBorderRenderState.alpha = worldBorderRenderState.alpha * OpacityState.getAlpha(Minecraft.getInstance().getDeltaTracker().getRealtimeDeltaTicks());
 	}
+	 */
 }

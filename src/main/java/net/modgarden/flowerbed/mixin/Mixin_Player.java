@@ -21,13 +21,13 @@ public abstract class Mixin_Player extends LivingEntity {
 
 	@WrapWithCondition(method = "actuallyHurt", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;causeFoodExhaustion(F)V"))
 	private boolean flowerbed$cancelHurtFoodExhaustion(Player instance, float exhaustion, @Local(argsOnly = true) ServerLevel serverLevel) {
-		return !serverLevel.getGameRules().getBoolean(FlowerbedGameRules.DISABLE_EXHAUSTION);
+		return !serverLevel.getGameRules().get(FlowerbedGameRules.DISABLE_EXHAUSTION);
 	}
 
 	@WrapWithCondition(method = "attack", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;causeFoodExhaustion(F)V"))
 	private boolean flowerbed$cancelAttackFoodExhaustion(Player instance, float exhaustion) {
 		if (instance instanceof ServerPlayer serverPlayer) {
-			return !serverPlayer.serverLevel().getGameRules().getBoolean(FlowerbedGameRules.DISABLE_EXHAUSTION);
+			return !serverPlayer.level().getGameRules().get(FlowerbedGameRules.DISABLE_EXHAUSTION);
 		}
 		return true;
 	}
