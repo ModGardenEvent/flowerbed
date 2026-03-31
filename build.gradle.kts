@@ -1,7 +1,7 @@
 import net.modgarden.flowerbed.gradle.Properties
 
 plugins {
-	id("fabric-loom") version "1.14-SNAPSHOT"
+	id("net.fabricmc.fabric-loom") version "1.14-SNAPSHOT"
 	id("maven-publish")
 }
 
@@ -44,26 +44,23 @@ repositories {
 	maven("https://maven.gegy.dev/releases") {
 		name = "Gegy"
 	}
+	mavenLocal()
 }
 
 dependencies {
 	minecraft(libs.minecraft)
-	mappings(loom.layered {
-		officialMojangMappings()
-		parchment(libs.parchment)
-	})
 
-	modImplementation(libs.fabric.loader)
-	modImplementation(libs.fabric.api)
-	modLocalRuntime(libs.mod.menu)
+	implementation(libs.fabric.loader)
+	implementation(libs.fabric.api)
+	localRuntime(libs.mod.menu)
 
 	// Testing
-//	modLocalRuntime(libs.player.roles)
+	localRuntime(libs.player.roles)
 
 	// Fix Mods
 
 	// Libraries
-	modImplementation(libs.fabric.permissions)
+	implementation(libs.fabric.permissions)
 }
 
 tasks {

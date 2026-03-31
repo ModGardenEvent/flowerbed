@@ -27,7 +27,7 @@ public final class Mixin_ServerSelectionList extends ObjectSelectionList<ServerS
 		super(minecraft, width, height, y, itemHeight);
 	}
 
-	@Inject(method =  "refreshEntries", at = @At(value = "INVOKE", target = "Ljava/util/List;forEach(Ljava/util/function/Consumer;)V", ordinal = 0))
+	@Inject(method =  "refreshEntries", at = @At(value = "INVOKE", target = "Ljava/util/List;addAll(Ljava/util/Collection;)Z", ordinal = 0))
 	private void flowerbed$forceModGardenServerIntoServerList(CallbackInfo ci) {
 		// TODO: Unhardcode the server IP.
 		addEntry(((ServerSelectionList)(Object)this).new OnlineServerEntry(screen, new ServerData("Mod Garden", "mc.modgarden.net", ServerData.Type.OTHER)));

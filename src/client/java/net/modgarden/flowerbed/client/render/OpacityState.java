@@ -1,6 +1,6 @@
 package net.modgarden.flowerbed.client.render;
 
-import net.minecraft.client.renderer.state.WorldBorderRenderState;
+import net.minecraft.client.renderer.state.level.WorldBorderRenderState;
 import net.minecraft.world.phys.Vec3;
 import net.modgarden.flowerbed.registry.FlowerbedGameRules;
 import org.jetbrains.annotations.UnknownNullability;

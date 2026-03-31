@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 @Mixin(ServerSelectionList.OnlineServerEntry.class)
 public class Mixin_ServerSelectionListOnlineServerEntry {
 	@ModifyVariable(
-			method = "render",
+			method = "extractContent",
 			at = @At("HEAD"),
 			ordinal = 0,
 			argsOnly = true)
@@ -25,7 +25,7 @@ public class Mixin_ServerSelectionListOnlineServerEntry {
 	}
 
 	@ModifyExpressionValue(
-			method = "render",
+			method = "extractContent",
 			at = @At(value = "INVOKE", target = "Lnet/minecraft/client/multiplayer/ServerList;size()I")
 	)
 	private int flowerbed$modifyRequiredDownArrowIndexRender(int original, @Local(ordinal = 0, argsOnly = true) int index) {
@@ -46,7 +46,7 @@ public class Mixin_ServerSelectionListOnlineServerEntry {
 
 	@ModifyVariable(
 			method = "mouseClicked",
-			at = @At(value = "INVOKE_ASSIGN", target = "Ljava/util/List;indexOf(Ljava/lang/Object;)I", ordinal = 1),
+			at = @At(value = "INVOKE_ASSIGN", target = "Ljava/util/List;indexOf(Ljava/lang/Object;)I"),
 			ordinal = 1
 	)
 	private int flowerbed$modifyMouseClickWidgetIndex(int value) {
@@ -57,8 +57,8 @@ public class Mixin_ServerSelectionListOnlineServerEntry {
 			method = "mouseClicked",
 			at = @At(value = "INVOKE", target = "Lnet/minecraft/client/multiplayer/ServerList;size()I")
 	)
-	private int flowerbed$preventDownArrowIndexClickAtBottom(int original, @Local(ordinal = 0, argsOnly = true) int index) {
-		if (index == -1) {
+	private int flowerbed$preventDownArrowIndexClickAtBottom(int original, @Local(name = "currentIndex")  int currentIndex) {
+		if (currentIndex == -1) {
 			return Integer.MIN_VALUE + 1; // Add 1 to avoid integer underflow.
 		}
 		return original;
@@ -66,7 +66,7 @@ public class Mixin_ServerSelectionListOnlineServerEntry {
 
 	@ModifyArg(
 			method = "swap",
-			at = @At(value = "INVOKE", target = "Ljava/util/List;get(I)Ljava/lang/Object;")
+			at = @At(value = "INVOKE", target = "Lnet/minecraft/client/multiplayer/ServerList;swap(II)V")
 	)
 	private int flowerbed$modifyServerSelectionEntry(int pos2) {
 		return pos2 + 1;

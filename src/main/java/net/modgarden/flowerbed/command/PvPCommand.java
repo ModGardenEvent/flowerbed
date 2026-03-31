@@ -12,8 +12,6 @@ import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Unit;
-import net.modgarden.flowerbed.mixin.Accessor_CommandSourceStack;
-import net.modgarden.flowerbed.mixin.Accessor_ServerPlayerCommandSource;
 import net.modgarden.flowerbed.registry.FlowerbedAttachments;
 import net.modgarden.flowerbed.registry.FlowerbedGameRules;
 
@@ -60,8 +58,7 @@ public class PvPCommand {
 			throw NO_PLAYER.create();
 		}
 
-		if (!(((Accessor_CommandSourceStack)context.getSource()).flowerbed$getSource() instanceof Accessor_ServerPlayerCommandSource playerCommandSource) ||
-				!playerCommandSource.flowerbed$getPlayer().equals(player)) {
+		if (!Objects.equals(context.getSource().getPlayer(), player)) {
 			context.getSource().sendFailure(Component.translatable("commands.flowerbed.pvp.toggle.failed.source"));
 			return 0;
 		}

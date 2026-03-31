@@ -2,7 +2,7 @@ package net.modgarden.flowerbed.gradle
 
 object Properties {
 	const val MOD_VERSION = "0.7.0"
-	const val JAVA_VERSION = 21
+	const val JAVA_VERSION = 25
 
 	const val GROUP = "net.modgarden"
 	const val MOD_NAME = "Flowerbed"
@@ -13,8 +13,8 @@ object Properties {
 	const val LICENSE = "MPL-2.0"
 
 	const val FABRIC_LOADER_RANGE = ">=0.16"
-	const val FABRIC_MINECRAFT_RANGE = "1.21.11"
+	const val FABRIC_MINECRAFT_RANGE = "26.1"
 
 	const val GITHUB_REPO = "ModGardenEvent/flowerbed"
-	const val GITHUB_COMMITISH = "1.21.11"
+	const val GITHUB_COMMITISH = "26.1"
 }

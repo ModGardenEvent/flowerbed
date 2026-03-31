@@ -3,8 +3,6 @@
   "package": "net.modgarden.flowerbed.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "Accessor_CommandSourceStack",
-    "Accessor_ServerPlayerCommandSource",
     "Mixin_CarvedPumpkinBlock",
     "Mixin_FoodData",
     "Mixin_Player",
