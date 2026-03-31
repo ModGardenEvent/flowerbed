@@ -44,7 +44,9 @@ repositories {
 	maven("https://maven.gegy.dev/releases") {
 		name = "Gegy"
 	}
-	mavenLocal()
+	maven("https://maven.cassian.cc") {
+		name = "Cassian"
+	}
 }
 
 dependencies {
