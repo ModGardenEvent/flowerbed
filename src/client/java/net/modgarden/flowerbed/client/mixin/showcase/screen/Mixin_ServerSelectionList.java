@@ -1,5 +1,6 @@
 package net.modgarden.flowerbed.client.mixin.showcase.screen;
 
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.ObjectSelectionList;
 import net.minecraft.client.gui.screens.multiplayer.JoinMultiplayerScreen;
@@ -10,8 +11,8 @@ import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import java.util.ArrayList;
 
 @PatchMetadata(
 		id = "force_mod_garden_server",
@@ -27,9 +28,12 @@ public final class Mixin_ServerSelectionList extends ObjectSelectionList<ServerS
 		super(minecraft, width, height, y, itemHeight);
 	}
 
-	@Inject(method =  "refreshEntries", at = @At(value = "INVOKE", target = "Ljava/util/List;addAll(Ljava/util/Collection;)Z", ordinal = 0))
-	private void flowerbed$forceModGardenServerIntoServerList(CallbackInfo ci) {
+	@ModifyExpressionValue(method =  "refreshEntries", at = @At(value = "NEW", target = "(Ljava/util/Collection;)Ljava/util/ArrayList;"))
+	private ArrayList<ServerSelectionList.Entry> flowerbed$forceModGardenServerIntoServerList(ArrayList<ServerSelectionList.Entry> original) {
+		ArrayList<ServerSelectionList.Entry> entries = new ArrayList<>();
 		// TODO: Unhardcode the server IP.
-		addEntry(((ServerSelectionList)(Object)this).new OnlineServerEntry(screen, new ServerData("Mod Garden", "mc.modgarden.net", ServerData.Type.OTHER)));
+		entries.add(((ServerSelectionList)(Object)this).new OnlineServerEntry(screen, new ServerData("Mod Garden", "mc.modgarden.net", ServerData.Type.OTHER)));
+		entries.addAll(original);
+		return entries;
 	}
 }
