@@ -16,5 +16,5 @@ object Properties {
 	const val FABRIC_MINECRAFT_RANGE = "~26.1"
 
 	const val GITHUB_REPO = "ModGardenEvent/flowerbed"
-	const val GITHUB_COMMITISH = "26.1"
+	const val GITHUB_COMMITISH = "26.1.1"
 }
