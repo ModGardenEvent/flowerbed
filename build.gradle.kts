@@ -1,7 +1,7 @@
 import net.modgarden.flowerbed.gradle.Properties
 
 plugins {
-	id("net.fabricmc.fabric-loom") version "1.14-SNAPSHOT"
+	id("net.fabricmc.fabric-loom") version "1.17-SNAPSHOT"
 	id("maven-publish")
 }
 
@@ -17,7 +17,7 @@ loom {
 			sourceSet(sourceSets["client"])
 		}
 	}
-	accessWidenerPath = projectDir.resolve("src/main/resources/flowerbed.accesswidener")
+	accessWidenerPath = projectDir.resolve("src/main/resources/flowerbed.classtweaker")
 }
 
 repositories {
@@ -47,6 +47,12 @@ repositories {
 	maven("https://maven.cassian.cc") {
 		name = "Cassian"
 	}
+	maven("https://maven.greenhouse.lgbt/releases") {
+		name = "Greenhouse (Releases)"
+	}
+	maven("https://maven.greenhouse.lgbt/snapshots") {
+		name = "Greenhouse (Snapshots)"
+	}
 }
 
 dependencies {
@@ -60,6 +66,8 @@ dependencies {
 	localRuntime(libs.player.roles)
 
 	// Fix Mods
+	implementation(libs.panacea)
+	implementation(project(":tourmaline"))
 
 	// Libraries
 	implementation(libs.fabric.permissions)
