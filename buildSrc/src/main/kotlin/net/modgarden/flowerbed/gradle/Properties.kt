@@ -1,7 +1,7 @@
 package net.modgarden.flowerbed.gradle
 
 object Properties {
-	const val MOD_VERSION = "0.9.0"
+	const val MOD_VERSION = "0.9.1"
 	const val JAVA_VERSION = 25
 
 	const val GROUP = "net.modgarden"
