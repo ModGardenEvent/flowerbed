@@ -1,6 +1,7 @@
 package net.modgarden.flowerbed.mixin.showcase.gamemode;
 
 import me.lucko.fabric.api.permissions.v0.Permissions;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.GameType;
 import net.modgarden.flowerbed.annotation.PatchMetadata;
@@ -27,7 +28,8 @@ public abstract class Mixin_ServerPlayer {
 	private void flowerbed$forceAdventure(
 			CallbackInfo ci
 	) {
-		if (!Permissions.check((ServerPlayer) (Object) this, FlowerbedPermissions.NON_ADVENTURE)) {
+		boolean b = !Permissions.check((ServerPlayer) (Object) this, FlowerbedPermissions.NON_ADVENTURE);
+		if (!FabricLoader.getInstance().isDevelopmentEnvironment() && b) {
 			this.setGameMode(GameType.ADVENTURE);
 		}
 	}

@@ -9,6 +9,7 @@
 		"Mixin_PortalProcessor",
 		"Mixin_ServerPlayer",
 		"Mixin_WitherSkullBlock",
+		"fix.hopeful.Mixin_BundleDispenseBehavior",
 		"fix.log.Mixin_IdDispatchCodec",
 		"fix.panacea.PanaceaBrewingStandMenuMixin",
 		"fix.panacea.PanaceaCauldronInteractionsMixin",

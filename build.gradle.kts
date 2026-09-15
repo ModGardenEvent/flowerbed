@@ -68,6 +68,7 @@ dependencies {
 	// Fix Mods
 	implementation(libs.panacea)
 	implementation(project(":tourmaline"))
+	implementation(libs.hopeful)
 
 	// Libraries
 	implementation(libs.fabric.permissions)
